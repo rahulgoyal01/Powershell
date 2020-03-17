@@ -1,2 +1,2 @@
 # Powershell
-Repo for Powershell Practice
+Repo for PowerShell Practice
