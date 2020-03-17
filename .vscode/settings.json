@@ -1,0 +1,6 @@
+{
+    "powershell.promptToUpdatePowerShell": true,
+    "powershell.integratedConsole.showOnStartup": true,
+    "powershell.scriptAnalysis.enable": true,
+    "git.enabled": true
+}
