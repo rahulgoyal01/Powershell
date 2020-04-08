@@ -1,0 +1,204 @@
+
+Error: unrecognized or incomplete command line.
+
+USAGE:
+    ipconfig [/allcompartments] [/? | /all | 
+                                 /renew [adapter] | /release [adapter] |
+                                 /renew6 [adapter] | /release6 [adapter] |
+                                 /flushdns | /displaydns | /registerdns |
+                                 /showclassid adapter |
+                                 /setclassid adapter [classid] |
+                                 /showclassid6 adapter |
+                                 /setclassid6 adapter [classid] ]
+
+where
+    adapter             Connection name 
+                       (wildcard characters * and ? allowed, see examples)
+
+    Options:
+       /?               Display this help message
+       /all             Display full configuration information.
+       /release         Release the IPv4 address for the specified adapter.
+       /release6        Release the IPv6 address for the specified adapter.
+       /renew           Renew the IPv4 address for the specified adapter.
+       /renew6          Renew the IPv6 address for the specified adapter.
+       /flushdns        Purges the DNS Resolver cache.
+       /registerdns     Refreshes all DHCP leases and re-registers DNS names
+       /displaydns      Display the contents of the DNS Resolver Cache.
+       /showclassid     Displays all the dhcp class IDs allowed for adapter.
+       /setclassid      Modifies the dhcp class id.  
+       /showclassid6    Displays all the IPv6 DHCP class IDs allowed for adapter.
+       /setclassid6     Modifies the IPv6 DHCP class id.
+
+
+The default is to display only the IP address, subnet mask and
+default gateway for each adapter bound to TCP/IP.
+
+For Release and Renew, if no adapter name is specified, then the IP address
+leases for all adapters bound to TCP/IP will be released or renewed.
+
+For Setclassid and Setclassid6, if no ClassId is specified, then the ClassId is removed.
+
+Examples:
+    > ipconfig                       ... Show information
+    > ipconfig /all                  ... Show detailed information
+    > ipconfig /renew                ... renew all adapters
+    > ipconfig /renew EL*            ... renew any connection that has its 
+                                         name starting with EL
+    > ipconfig /release *Con*        ... release all matching connections,
+                                         eg. "Wired Ethernet Connection 1" or
+                                             "Wired Ethernet Connection 2"
+    > ipconfig /allcompartments      ... Show information about all 
+                                         compartments
+    > ipconfig /allcompartments /all ... Show detailed information about all
+                                         compartments
+===========================================================================
+Interface List
+ 24...00 05 9a 3c 7a 00 ......Cisco AnyConnect Secure Mobility Client Virtual Miniport Adapter for Windows x64
+ 18...d4 81 d7 d2 9c 1f ......Intel(R) Ethernet Connection (4) I219-LM
+ 15...0a 00 27 00 00 0f ......VirtualBox Host-Only Ethernet Adapter
+ 21...90 61 ae d4 b0 67 ......Microsoft Wi-Fi Direct Virtual Adapter
+  7...92 61 ae d4 b0 66 ......Microsoft Wi-Fi Direct Virtual Adapter #2
+ 19...90 61 ae d4 b0 66 ......Intel(R) Dual Band Wireless-AC 8265
+ 16...00 ff ac 05 57 3c ......TAP-Win32 Adapter V9
+  1...........................Software Loopback Interface 1
+===========================================================================
+
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0      192.168.1.1    192.168.1.101     50
+     3.122.36.210  255.255.255.255      10.101.12.1    10.101.12.136      2
+      3.217.1.142  255.255.255.255      10.101.12.1    10.101.12.136      2
+         10.0.0.0        255.0.0.0      10.101.12.1    10.101.12.136      2
+    10.100.73.141  255.255.255.255      10.101.12.1    10.101.12.136      2
+   10.100.212.201  255.255.255.255      10.101.12.1    10.101.12.136      2
+      10.101.12.0    255.255.255.0         On-link     10.101.12.136    257
+    10.101.12.136  255.255.255.255         On-link     10.101.12.136    257
+    10.101.12.255  255.255.255.255         On-link     10.101.12.136    257
+        13.64.0.0      255.224.0.0      10.101.12.1    10.101.12.136      2
+    18.200.123.80  255.255.255.255      10.101.12.1    10.101.12.136      2
+      18.202.11.3  255.255.255.255      10.101.12.1    10.101.12.136      2
+     18.203.28.80  255.255.255.255      10.101.12.1    10.101.12.136      2
+        20.36.0.0      255.254.0.0      10.101.12.1    10.101.12.136      2
+        20.43.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+        20.44.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+        20.45.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+        20.46.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+        20.47.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+        20.48.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+        20.49.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       20.150.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       20.184.0.0      255.248.0.0      10.101.12.1    10.101.12.136      2
+        23.96.0.0      255.248.0.0      10.101.12.1    10.101.12.136      2
+   34.255.146.229  255.255.255.255      10.101.12.1    10.101.12.136      2
+    35.174.92.238  255.255.255.255      10.101.12.1    10.101.12.136      2
+      38.98.68.43  255.255.255.255      10.101.12.1    10.101.12.136      2
+        40.64.0.0      255.224.0.0      10.101.12.1    10.101.12.136      2
+       40.112.0.0      255.248.0.0      10.101.12.1    10.101.12.136      2
+        51.12.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       51.104.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+     51.107.154.0  255.255.255.252      10.101.12.1    10.101.12.136      2
+      51.116.58.0  255.255.255.252      10.101.12.1    10.101.12.136      2
+       51.120.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       51.140.0.0      255.252.0.0      10.101.12.1    10.101.12.136      2
+    51.140.184.11  255.255.255.255      10.101.12.1    10.101.12.136      2
+      51.141.8.11  255.255.255.255      10.101.12.1    10.101.12.136      2
+       52.136.0.0      255.248.0.0      10.101.12.1    10.101.12.136      2
+       52.148.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       52.187.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+     52.210.66.31  255.255.255.255      10.101.12.1    10.101.12.136      2
+       52.224.0.0      255.240.0.0      10.101.12.1    10.101.12.136      2
+       52.246.0.0      255.254.0.0      10.101.12.1    10.101.12.136      2
+       52.255.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+    62.189.50.161  255.255.255.255      10.101.12.1    10.101.12.136      2
+     63.32.119.16  255.255.255.255      10.101.12.1    10.101.12.136      2
+        65.52.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       81.90.80.0    255.255.240.0      10.101.12.1    10.101.12.136      2
+      94.31.37.33  255.255.255.255      192.168.1.1    192.168.1.101     51
+      102.133.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       104.40.0.0      255.248.0.0      10.101.12.1    10.101.12.136      2
+      104.208.0.0      255.248.0.0      10.101.12.1    10.101.12.136      2
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      137.116.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+   145.248.194.25  255.255.255.255      10.101.12.1    10.101.12.136      2
+       168.62.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+       172.16.0.0      255.240.0.0      10.101.12.1    10.101.12.136      2
+      191.232.0.0      255.252.0.0      10.101.12.1    10.101.12.136      2
+      192.168.0.0      255.255.0.0      10.101.12.1    10.101.12.136      2
+      192.168.1.1  255.255.255.255         On-link     192.168.1.101     51
+    192.168.1.101  255.255.255.255         On-link     192.168.1.101    306
+      192.168.2.1  255.255.255.255         On-link       192.168.2.1    281
+  193.178.205.128  255.255.255.248      10.101.12.1    10.101.12.136      2
+   208.243.21.161  255.255.255.255      10.101.12.1    10.101.12.136      2
+    209.185.165.0  255.255.255.128      10.101.12.1    10.101.12.136      2
+    216.210.112.0    255.255.240.0      10.101.12.1    10.101.12.136      2
+  216.210.114.179  255.255.255.255      192.168.1.1    192.168.1.101     50
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link       192.168.2.1    281
+        224.0.0.0        240.0.0.0         On-link     192.168.1.101    306
+        224.0.0.0        240.0.0.0         On-link     10.101.12.136  10000
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link       192.168.2.1    281
+  255.255.255.255  255.255.255.255         On-link     192.168.1.101    306
+  255.255.255.255  255.255.255.255         On-link     10.101.12.136  10000
+===========================================================================
+Persistent Routes:
+  Network Address          Netmask  Gateway Address  Metric
+          0.0.0.0          0.0.0.0     10.101.128.1  Default 
+===========================================================================
+
+IPv6 Route Table
+===========================================================================
+Active Routes:
+ If Metric Network Destination      Gateway
+ 24     36 ::/0                     On-link
+  1    331 ::1/128                  On-link
+ 24    291 fe80::/64                On-link
+ 15    281 fe80::1be:cc1a:62d2:6dff/128
+                                    On-link
+ 24    291 fe80::5995:9525:4fe8:c7d4/128
+                                    On-link
+ 24    291 fe80::5b16:9565:c752:9725/128
+                                    On-link
+ 19    306 fe80::b87a:61c:ecd5:822d/128
+                                    On-link
+  1    331 ff00::/8                 On-link
+ 15    281 ff00::/8                 On-link
+ 19    306 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+  None
+iondellt136
+Workstation Statistics for \\IONDELLT136
+
+
+Statistics since 24/03/2020 06:55:43
+
+
+  Bytes received                               26763988
+  Server Message Blocks (SMBs) received        118
+  Bytes transmitted                            206488539
+  Server Message Blocks (SMBs) transmitted     6
+  Read operations                              8948
+  Write operations                             148
+  Raw reads denied                             0
+  Raw writes denied                            0
+
+  Network errors                               0
+  Connections made                             1
+  Reconnections made                           1168
+  Server disconnects                           18
+
+  Sessions started                             0
+  Hung sessions                                10
+  Failed sessions                              0
+  Failed operations                            0
+  Use count                                    1912
+  Failed use count                             1338
+
+The command completed successfully.
+
