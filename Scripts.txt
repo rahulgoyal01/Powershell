@@ -1,0 +1,86 @@
+
+DistinguishedName : "OU=Wallstreet TreasuryV3,OU=WallStreet Treasury,DC=S264051-AD01,DC=corp"
+
+
+Get-ADUser -SearchBase "OU=Wallstreet TreasuryV3,OU=WallStreet Treasury,DC=S264051-AD01,DC=corp" | Export-Csv -Path
+
+Get-ADUser -Filter * -SearchBase "OU=RSA,OU=Europe,OU=Restricted Users,OU=CF Clients,OU=CF,OU=Mid Market Clients,DC=WSSASPAD02,DC=corp" -Properties * | Where { $_.Enabled -eq $True} | Select-Object DisplayName, Description, SamAccountName, EmailAddress, OfficePhone | Export-Csv -Path  D:\output.csv
+
+
+
+
+OU=Users,OU=Ardagh,OU=Clients,OU=EU Shared,OU=CF,OU=Mid Market,OU=Customers,OU=ioncloudeuad,DC=ioncloudeuad,DC=iongroup,DC=com
+
+
+=======================================================
+#Enter a path to your import CSV file
+$ADUsers = Import-csv C:\Users\rahul.goyal\Documents\test.csv
+
+foreach ($User in $ADUsers)
+{
+
+       $Username    = $User.SamAccountName
+       $Password    = $User.Password
+       $Firstname   = $User.Firstname
+       $Lastname    = $User.Lastname
+	   $OfficePhone = $User.number
+	   $Description = $User.Description
+	   $Mail		= $User.EmailAddress
+       $OU          = $User.OU
+
+       #Check if the user account already exists in AD
+       if (Get-ADUser -F {SamAccountName -eq $Username})
+       {
+               #If user does exist, output a warning message
+               Write-Warning "A user account $Username has already exist in Active Directory."
+       }
+       else
+       {
+              #If a user does not exist then create a new user account
+          
+        #Account will be created in the OU listed in the $OU variable in the CSV file; don’t forget to change the domain name in the"-UserPrincipalName" variable
+            New-ADUser `
+            -SamAccountName $Username `
+            -UserPrincipalName "$Username@ioncloudeuad.iongroup.com" `
+            -Name "$Firstname $Lastname" `
+            -GivenName $Firstname `
+            -Surname $Lastname `
+            -Enabled $True `
+            -ChangePasswordAtLogon $True `
+            -DisplayName "$Lastname, $Firstname" `
+			-Description $Description `
+            -OfficePhone $OfficePhone `
+            -EmailAddress $Mail `
+            -Path $OU `
+            -AccountPassword (convertto-securestring $Password -AsPlainText -Force)
+
+       }
+}
+
+
+================
+
+Get-ADGroupMember -identity “RSA Group” | select SamAccountName | Export-csv -path
+
+==================
+
+Search-ADAccount -lockedout | Select-Object Name, SamAccountName | foreach $user
+
+=================
+
+Get ACL for a folder recursively in outgrid view
+
+$FolderPath = Get-ChildItem -Directory -Path "C:\temp" -Recurse -Force
+$Output = @()
+ForEach ($Folder in $FolderPath) {
+    $Acl = Get-Acl -Path $Folder.FullName
+    ForEach ($Access in $Acl.Access) {
+$Properties = [ordered]@{'Folder Name'=$Folder.FullName;'Group/User'=$Access.IdentityReference;'Permissions'=$Access.FileSystemRights;'Inherited'=$Access.IsInherited}
+$Output += New-Object -TypeName PSObject -Property $Properties            
+}
+}
+$Output | Out-GridView
+
+===============================
+Gpresult /h c:\report.html /user:\philips.sentinel1 
+==================================

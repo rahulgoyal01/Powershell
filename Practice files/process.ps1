@@ -1,2 +1,1 @@
-Get-Process -Name c*
-Get-Command -Name d*
+Get-Process -Name c* | Export-Csv -Append D:/pslogs.csv
