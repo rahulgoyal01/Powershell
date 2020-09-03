@@ -84,3 +84,9 @@ $Output | Out-GridView
 ===============================
 Gpresult /h c:\report.html /user:\philips.sentinel1 
 ==================================
+To see route tables in windows
+ netstat -rn
+ 
+==========================
+
+ssh -i "SecondKey.pem" ec2-user@ec2-54-157-142-65.compute-1.amazonaws.com
