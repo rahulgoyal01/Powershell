@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "user id to be given"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "to provide key vault resource id"
+        },
+        "secretName": "secretName from the keyVault"
+      }
+    }
+  }
+}
